@@ -218,12 +218,13 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Originating from the diffusion phenomenon in physics that describes particle movement, the diffusion generative models inherit the characteristics of a random walk in the data space along the denoising trajectory. 
-            However, intrinsic mutual interference among image regions contradicts the need for practical downstream application scenarios where the preservation of low-level pixel information is desired (e.g., customization tasks like personalized generation and inpainting based on a user-provided single image).
-            In this work, we investigate the diffusion (physics) in diffusion (machine learning) properties and introduce Cyclic One-Way Diffusion (COW), which constrains chaotic, bidirectional information diffusion into a streamlined unidirectional flow.
-            This ensures precise information transfer while minimizing disruptive interference, thus providing a versatile and training-free framework that can be adaptable to a wide range of customization scenarios.
-            Building on this, we further propose Selective One-Way Diffusion (SOW), which leverages attention mechanisms and Multimodal Large Language Models (MLLMs) to dynamically regulate the direction and intensity of diffusion based on contextual relationships within the image.
-            Our method reframes disordered diffusion as a powerful tool for context-driven, coherent image generation, significantly improving both fidelity and condition consistency. Extensive experiments demonstrate the untapped potential of controlled information diffusion, offering a path to more adaptive and intelligent generative models in a learning-free manner.  
+            Originating from the diffusion phenomenon in physics, which describes the random movement and collisions of particles, diffusion generative models simulate a random walk in the data space along the denoising trajectory. 
+            This allows information to diffuse across regions, yielding harmonious outcomes.
+            However, the chaotic and disordered nature of information diffusion in diffusion models often results in undesired interference between image regions, causing degraded detail preservation and contextual inconsistency.
+            In this work, we address these challenges by reframing disordered diffusion as a powerful tool for text-vision-to-image generation (TV2I) tasks, achieving pixel-level condition fidelity while maintaining visual and semantic coherence throughout the image. 
+            We first introduce Cyclic One-Way Diffusion (COW), which provides an efficient unidirectional diffusion framework for precise information transfer while minimizing disruptive interference. 
+            Building on COW, we further propose Selective One-Way Diffusion (SOW), which utilizes Multimodal Large Language Models (MLLMs) to clarify the semantic and spatial relationships within the image. Based on these insights, SOW combines attention mechanisms to dynamically regulate the direction and intensity of diffusion according to contextual relationships.
+            Extensive experiments demonstrate the untapped potential of controlled information diffusion, offering a path to more adaptive and versatile generative models in a learning-free manner. 
           </p>
         </div>
         <div class="content has-text-justified">
@@ -311,12 +312,11 @@
       <!-- Architecture -->
       <div class="columns is-centered">
           <div class="column is-full-width">
-              <h4 class="title is-3">• Framework</h4>
-
+              <!-- <h4 class="title is-3">• Framework</h4> -->
               <div class="content has-text-justified">
                 <!-- <p style="text-align: left; color: #061E61;"> -->
                   <p>
-                  The pipeline of our proposed SOW method. Initially, given the visual condition and text condition, we employ Gemini to infer the textual description, the adaptive location box of the visual condition, and the visual condition-related box through a three-stage reasoning process. The input visual condition is then affixed to a predefined background, serving as the seed initialization for the cycle. During the Cyclic One-Way Diffusion process, we ``disturb'' and ``reconstruct'' the image in a cyclic way and ensure a continuous one-way diffusion by consistently replacing it with corresponding $\mathbf{x_t}$. Also, by integrating these prior pieces of information, we execute cyclic diffusion with dynamic attention modulation, enhancing the coherence and accuracy of the generated outputs.
+                  The pipeline of our proposed SOW method. Initially, given the visual condition and text condition, we employ Gemini to infer the textual description, the adaptive location box of the visual condition, and the visual condition-related box through a three-stage reasoning process. The input visual condition is then affixed to a predefined background, serving as the seed initialization for the cycle. During the Cyclic One-Way Diffusion process, we ``disturb'' and ``reconstruct'' the image in a cyclic way and ensure a continuous one-way diffusion by consistently replacing it with corresponding \(\mathbf{x_t}\). Also, by integrating these prior pieces of information, we execute cyclic diffusion with dynamic attention modulation, enhancing the coherence and accuracy of the generated outputs.
                   </p>
                   <img class="columns is-centered has-text-centered" src="./static/images/pipeline_new2-1.png" alt="Teaser" width="95%"
                        style="margin:0 auto">
@@ -375,14 +375,15 @@
         <div class="content has-text-justified">
           <h4 class="title is-4">• Tradeoffs between Text and Visual Conditions</h4>
           <p>
-            
+            SOW strikes a balance between meeting the visual and text conditions. For example, when given a photo of a young woman but the text is “an \textit{old} person”, our method can make the woman older to meet the text description by adding wrinkles, changing skin elasticity and hair color, etc. while maintaining the facial expression and the identity of the given woman.
           </p>
           <img class="columns is-centered has-text-centered" src="./static/images/conflict_new-1.png" alt="Teaser" width="100%"
           style="margin:0 auto">
           <br>
-          <h4 class="title is-4">• Tradeoffs between Text and Visual Conditions</h4>
+          <h4 class="title is-4">• Generalized Visual Condition</h4>
         </div>
         <div class="content has-text-justified">
+          <p>SOW can be directly applied to other visual conditions other than human faces.</p>
           <img class="columns is-centered has-text-centered" src="./static/images/other_obj_new2-1.png" alt="Teaser" width="100%"
                style="margin:0 auto">
           <br>
@@ -395,6 +396,7 @@
           </figcaption> -->
       </div>
     </div>
+  </div>
 
 <!-- <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
