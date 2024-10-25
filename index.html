@@ -267,13 +267,13 @@
           <p>
             Diffusion in physics is a phenomenon caused by random movements and collisions between particles.
             The diffusion model, drawing inspiration from non-equilibrium thermodynamics, establishes a Markov chain between a target data distribution and the Gaussian distribution.
-            Illustration of ``diffusion in diffusion''. In experiment (a), We invert the pictures of pure gray and white to \( \mathbf{x_t} \), merge them together, and then regenerate them to \( \mathbf{x_0} \) via deterministic denoising. In experiment (b), we enhance the attention scores of the upper right quartile to the lower left quartile, while in experiment (c) we suppress attention scores from the upper right quartile towards other areas. The resulting images show how regions within an image diffuse and interfere with each other during denoising, and reveal the direct effect of attention on diffusion.  
+            Illustration of ''diffusion in diffusion''. In experiment (a), We invert the pictures of pure gray and white to \( \mathbf{x_t} \), merge them together, and then regenerate them to \( \mathbf{x_0} \) via deterministic denoising. In experiment (b), we enhance the attention scores of the upper right quartile to the lower left quartile, while in experiment (c) we suppress attention scores from the upper right quartile towards other areas. The resulting images show how regions within an image diffuse and interfere with each other during denoising, and reveal the direct effect of attention on diffusion.  
           </p>
         </div>
         <div class="content has-text-justified">
           <img class="columns is-centered has-text-centered" src="./static/images/diffusionindiffusion.png" alt="Teaser" width="100%"
                style="margin:0 auto">
-          <br>
+          <!-- <br> -->
           <!-- <figcaption>
               <p style="text-align: left;">
                   <font color="061E61">
@@ -316,48 +316,14 @@
               <div class="content has-text-justified">
                 <!-- <p style="text-align: left; color: #061E61;"> -->
                   <p>
-                  The pipeline of our proposed SOW method. Initially, given the visual condition and text condition, we employ Gemini to infer the textual description, the adaptive location box of the visual condition, and the visual condition-related box through a three-stage reasoning process. The input visual condition is then affixed to a predefined background, serving as the seed initialization for the cycle. During the Cyclic One-Way Diffusion process, we ``disturb'' and ``reconstruct'' the image in a cyclic way and ensure a continuous one-way diffusion by consistently replacing it with corresponding \(\mathbf{x_t}\). Also, by integrating these prior pieces of information, we execute cyclic diffusion with dynamic attention modulation, enhancing the coherence and accuracy of the generated outputs.
+                  The pipeline of our proposed SOW method. Initially, given the visual condition and text condition, we employ Gemini to infer the textual description, the adaptive location box of the visual condition, and the visual condition-related box through a three-stage reasoning process. The input visual condition is then affixed to a predefined background, serving as the seed initialization for the cycle. During the Cyclic One-Way Diffusion process, we ''disturb'' and ''reconstruct'' the image in a cyclic way and ensure a continuous one-way diffusion by consistently replacing it with corresponding \(\mathbf{x_t}\). Also, by integrating these prior pieces of information, we execute cyclic diffusion with dynamic attention modulation, enhancing the coherence and accuracy of the generated outputs.
                   </p>
-                  <img class="columns is-centered has-text-centered" src="./static/images/pipeline_new2-1.png" alt="Teaser" width="95%"
-                       style="margin:0 auto">
-                  <br>
-                  <figcaption>
-
-                  </figcaption>
-                  <!-- <br>
-                  <p>
-                  <ul>
-                      <li>
-                          <b>Multimodal Encoding Stage.</b> Leveraging existing well-established models to encode inputs of various modalities.
-                          Here we take advantage of the ImageBind, which is a unified high-performance encoder across six modalities.
-                          Then, via the linear projection layer, different input representations are mapped into language-like representations that
-                          are comprehensible to the LLM.
-                      </li>
-                      <li>
-                          <b>LLM Understanding and Reasoning Stage.</b>
-                          An LLM is used as the core agent of NExT-GPT.
-                          Technically, we employ the Vicuna.
-                          LLM takes as input the representations from different modalities and carries out semantic understanding and reasoning over
-                          the inputs.
-                          It outputs 1) the textual responses directly, and 2) signal tokens of each modality that serve as instructions to dictate
-                          the decoding layers whether to generate multimodal contents, and what content to produce if yes.
-                      </li>
-                      <li>
-                          <b>Multimodal Generation Stage.</b>
-                          Receiving the multimodal signals with specific instructions from LLM (if any), the Transformer-based output projection
-                          layers map the signal token representations into the ones that are understandable to following multimodal decoders.
-                          Technically, we employ the current off-the-shelf latent conditioned diffusion models of different modal generations, i.e.,
-                          Stable Diffusion (SD) for image synthesis, Zeroscope for video synthesis, and AudioLDM for audio synthesis.
-                      </li>
-                  </ul>
-                  </p>
-                  <br> -->
-<!-- 
-                  <img class="columns is-centered has-text-centered" src="./static/images/config.png" alt="Teaser" width="85%"
-                       style="margin:0 auto"> -->
+                  <img class="columns is-centered has-text-centered" src="./static/images/pipeline_new2-1.png" alt="Teaser" width="75%" style="margin:0 auto">
+                  <!-- <br> -->
+                  <!-- <figcaption>
+                  </figcaption> -->
               </div>
               <br/>
-
           </div>
       </div>
       <!--/ Architecture -->
@@ -365,13 +331,12 @@
   </div>
 </section>
 
-
 <section class="section">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Results</h2>
+        <h2 class="title is-3">More Results</h2>
         <div class="content has-text-justified">
           <h4 class="title is-4">• Tradeoffs between Text and Visual Conditions</h4>
           <p>
@@ -384,7 +349,7 @@
         </div>
         <div class="content has-text-justified">
           <p>SOW can be directly applied to other visual conditions other than human faces.</p>
-          <img class="columns is-centered has-text-centered" src="./static/images/other_obj_new2-1.png" alt="Teaser" width="100%"
+          <img class="columns is-centered has-text-centered" src="./static/images/other_obj_new2-1.png" alt="Teaser" width="60%"
                style="margin:0 auto">
           <br>
           <!-- <figcaption>
@@ -397,7 +362,7 @@
       </div>
     </div>
   </div>
-
+</section>
 <!-- <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
@@ -409,7 +374,6 @@
 }</code></pre>
   </div>
 </section> -->
-
 <footer class="footer">
   <div class="container">
       <div class="columns is-centered">
