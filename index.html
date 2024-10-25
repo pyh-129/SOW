@@ -10,6 +10,7 @@
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
 
@@ -265,7 +266,7 @@
           <p>
             Diffusion in physics is a phenomenon caused by random movements and collisions between particles.
             The diffusion model, drawing inspiration from non-equilibrium thermodynamics, establishes a Markov chain between a target data distribution and the Gaussian distribution.
-            Illustration of ``diffusion in diffusion''. In experiment (a), We invert the pictures of pure gray and white to $\mathbf{x_t}$, merge them together, and then regenerate them to $\mathbf{x_0}$ via deterministic denoising. In experiment (b), we enhance the attention scores of the upper right quartile to the lower left quartile, while in experiment (c) we suppress attention scores from the upper right quartile towards other areas. The resulting images show how regions within an image diffuse and interfere with each other during denoising, and reveal the direct effect of attention on diffusion. 
+            Illustration of ``diffusion in diffusion''. In experiment (a), We invert the pictures of pure gray and white to \( \mathbf{x_t} \), merge them together, and then regenerate them to \( \mathbf{x_0} \) via deterministic denoising. In experiment (b), we enhance the attention scores of the upper right quartile to the lower left quartile, while in experiment (c) we suppress attention scores from the upper right quartile towards other areas. The resulting images show how regions within an image diffuse and interfere with each other during denoising, and reveal the direct effect of attention on diffusion.  
           </p>
         </div>
         <div class="content has-text-justified">
@@ -315,9 +316,9 @@
               <div class="content has-text-justified">
                 <!-- <p style="text-align: left; color: #061E61;"> -->
                   <p>
-                  <b>Figure 2:</b> The pipeline of our proposed SOW method. Initially, given the visual condition and text condition, we employ Gemini to infer the textual description, the adaptive location box of the visual condition, and the visual condition-related box through a three-stage reasoning process. The input visual condition is then affixed to a predefined background, serving as the seed initialization for the cycle. During the Cyclic One-Way Diffusion process, we ``disturb'' and ``reconstruct'' the image in a cyclic way and ensure a continuous one-way diffusion by consistently replacing it with corresponding $\mathbf{x_t}$. Also, by integrating these prior pieces of information, we execute cyclic diffusion with dynamic attention modulation, enhancing the coherence and accuracy of the generated outputs.
-              </p>
-                  <img class="columns is-centered has-text-centered" src="./static/images/pipeline_v_00.png" alt="Teaser" width="95%"
+                  The pipeline of our proposed SOW method. Initially, given the visual condition and text condition, we employ Gemini to infer the textual description, the adaptive location box of the visual condition, and the visual condition-related box through a three-stage reasoning process. The input visual condition is then affixed to a predefined background, serving as the seed initialization for the cycle. During the Cyclic One-Way Diffusion process, we ``disturb'' and ``reconstruct'' the image in a cyclic way and ensure a continuous one-way diffusion by consistently replacing it with corresponding $\mathbf{x_t}$. Also, by integrating these prior pieces of information, we execute cyclic diffusion with dynamic attention modulation, enhancing the coherence and accuracy of the generated outputs.
+                  </p>
+                  <img class="columns is-centered has-text-centered" src="./static/images/pipeline_new2-1.png" alt="Teaser" width="95%"
                        style="margin:0 auto">
                   <br>
                   <figcaption>
@@ -363,6 +364,37 @@
     </div>
   </div>
 </section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Results</h2>
+        <div class="content has-text-justified">
+          <h4 class="title is-4">• Tradeoffs between Text and Visual Conditions</h4>
+          <p>
+            
+          </p>
+          <img class="columns is-centered has-text-centered" src="./static/images/conflict_new-1.png" alt="Teaser" width="100%"
+          style="margin:0 auto">
+          <br>
+          <h4 class="title is-4">• Tradeoffs between Text and Visual Conditions</h4>
+        </div>
+        <div class="content has-text-justified">
+          <img class="columns is-centered has-text-centered" src="./static/images/other_obj_new2-1.png" alt="Teaser" width="100%"
+               style="margin:0 auto">
+          <br>
+          <!-- <figcaption>
+              <p style="text-align: left;">
+                  <font color="061E61">
+                      <b>Figure 1:</b> Comparison with existing SOTA methods for maintaining the fidelity of text and visual conditions in different application scenarios. We consistently achieve superior fidelity to both text and visual conditions in all three settings. In contrast, other learning-based approaches struggle to attain the same level of performance in diverse scenarios. 
+                  </font>
+              </p>
+          </figcaption> -->
+      </div>
+    </div>
 
 <!-- <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
